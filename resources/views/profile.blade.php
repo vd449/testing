@@ -1,9 +1,13 @@
+@if(session('user')==null || session('user')=="")
+    <script>window.location = "/logout";</script>
+@endif
+
 <h1>Profile Page</h1>
 <h2>Hello, {{session('user')}}</h2>
 
 @if (Session::get('success')=="success")
 
-    <img src="{{ URL::to('/public/uploads/'.Session::get('image'))}}">
+    <img src="{{asset('/uploads/'.Session::get('image'))}}">
 @endif
 
 <form action="uploadfile" method="post" enctype="multipart/form-data">

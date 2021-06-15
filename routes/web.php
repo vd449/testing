@@ -45,6 +45,10 @@ route::get('/logout',function (){
         session()->pull('user');
         return redirect('user');
     }
+    else
+    {
+        return redirect('user');
+    }
 });
 Route::get('list',[MemberController::class,'show']);
 Route::view('upload','upload');

@@ -15,7 +15,8 @@ class UploadController extends Controller
         $imageName = 'tempImage.jpg';
         $req->session()->put('image', $imageName);
         //Storage::put('file.jpg', $req->file('file'));
-        return $req->file->move(public_path('uploads'), $imageName);
+        $req->file->move(public_path('uploads'), $imageName);
+        return redirect('profile');
         //return $req->file('file')->store('docs', $imageName);
     }
 }
