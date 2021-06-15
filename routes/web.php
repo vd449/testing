@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\registrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,10 @@ route::get('/login',function (){
     }
     return redirect('user');
 });
+
+route::view('/register','registration');
+
+route::post('registerUser',[registrationController::class,'register']);
 
 route::get('/logout',function (){
     if(session()->has('user'))
